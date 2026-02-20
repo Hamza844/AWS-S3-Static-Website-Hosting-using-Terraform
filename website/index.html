@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChronoSmart | Premium Smart Watches</title>
+    <style>
+        /* CSS STYLES */
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #3b82f6;
+            --text-color: #333;
+            --bg-color: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .cart {
+            font-weight: bold;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 70vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: var(--accent-color);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .feature-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            .nav-links {
+                display: none; /* Hidden on mobile for simplicity in this static version */
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Chrono<span>Smart</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#features">Features</a></li>
+            </ul>
+            <div class="cart" onclick="viewCart()">🛒 Cart (<span id="cart-count">0</span>)</div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Next Generation on Your Wrist.</h1>
+            <p>Track your health, stay connected, and look stylish with our premium collection of smartwatches designed for the modern lifestyle.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=80" alt="Premium Smart Watch">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Why Choose ChronoSmart?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>🔋 7-Day Battery</h3>
+                <p>Go longer without needing a charge.</p>
+            </div>
+            <div class="feature-item">
+                <h3>❤️ Health Tracking</h3>
+                <p>Monitor heart rate, sleep, and fitness.</p>
+            </div>
+            <div class="feature-item">
+                <h3>💧 Water Resistant</h3>
+                <p>Swim-proof and ready for any adventure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <h2 class="section-title">Trending Watches</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80" alt="Series X Watch" class="product-img">
+                <h3 class="product-title">Chrono Series X</h3>
+                <p class="product-price">$299.00</p>
+                <button class="add-to-cart" onclick="addToCart('Chrono Series X')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=400&q=80" alt="Sport Edition" class="product-img">
+                <h3 class="product-title">Active Pro Edition</h3>
+                <p class="product-price">$199.00</p>
+                <button class="add-to-cart" onclick="addToCart('Active Pro Edition')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1617043786394-f977fa12eddf?auto=format&fit=crop&w=400&q=80" alt="Minimalist Watch" class="product-img">
+                <h3 class="product-title">Minimalist Fit</h3>
+                <p class="product-price">$149.00</p>
+                <button class="add-to-cart" onclick="addToCart('Minimalist Fit')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1517420879524-86d64ac2f339?auto=format&fit=crop&w=400&q=80" alt="Classic Steel" class="product-img">
+                <h3 class="product-title">Classic Steel Elite</h3>
+                <p class="product-price">$349.00</p>
+                <button class="add-to-cart" onclick="addToCart('Classic Steel Elite')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ChronoSmart. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple script to handle the shopping cart interactions
+        let cartItems = 0;
+
+        function addToCart(productName) {
+            cartItems++;
+            document.getElementById('cart-count').innerText = cartItems;
+            
+            // Show a simple alert to the user
+            alert(`Awesome! You added the ${productName} to your cart.`);
+        }
+
+        function viewCart() {
+            if (cartItems === 0) {
+                alert("Your cart is currently empty.");
+            } else {
+                alert(`You have ${cartItems} item(s) in your cart ready for checkout!`);
+            }
+        }
+    </script>
+
+</body>
+</html>
